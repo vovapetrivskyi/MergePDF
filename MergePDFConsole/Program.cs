@@ -1,4 +1,5 @@
 ﻿using MergePDFLibrary;
+using System.Diagnostics;
 
 string inputDirectoryPath = "";
 
@@ -41,10 +42,26 @@ PDFMerger pdfMerger = new PDFMerger();
 bool enumratePagesBool = enumeratePages == "1" ? true : false;
 bool exceptFirstPageBool = exceptFirstPage == "1" ? true : false;
 
+Stopwatch stopwatch = new Stopwatch();
+
+stopwatch.Start();
+
 string result = pdfMerger.MergePdfFilesWithPageNumbers(inputDirectoryPath, 
 	outputFilePath,
 	enumratePagesBool,
 	exceptFirstPageBool
 	);
 
+stopwatch.Stop();
+
+// Get the elapsed time as a TimeSpan object
+TimeSpan ts = stopwatch.Elapsed;
+
+// Format and display the elapsed time
+string elapsedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:000}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+
+Console.WriteLine("Task completed in: " + elapsedTime);
+
 Console.WriteLine($"Result: {result}");
+
+Console.ReadLine();
