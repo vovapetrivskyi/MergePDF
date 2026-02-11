@@ -1,4 +1,24 @@
-﻿using iText.Kernel.Pdf;
+﻿/*
+	PdfMerger
+
+    Copyright (C) 2026  Volodymyr Petrivskyi vovapetrivskyi@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+*/
+
+using iText.Kernel.Pdf;
 using iText.Kernel.Utils;
 using iText.Layout;
 using iText.Layout.Element;
@@ -6,8 +26,19 @@ using iText.Layout.Properties;
 
 namespace MergePDFLibrary
 {
+	/// <summary>
+	/// Class responsible for merging PDF files and optionally adding page numbers.
+	/// </summary>
 	public class PDFMerger
 	{
+		/// <summary>
+		/// Method  for merging PDF files from a specified directory into a single PDF file. It also has options to enumerate pages and to skip enumeration on the first page.
+		/// </summary>
+		/// <param name="inputDirectoryPath">Path of thedirectorywithfiles</param>
+		/// <param name="outputFilePath">Result file path</param>
+		/// <param name="enumeratePages">Is page enumetation needed</param>
+		/// <param name="exceptFirstPage">Is there need to enumerate first page</param>
+		/// <returns></returns>
 		public string MergePdfFilesWithPageNumbers(string inputDirectoryPath, string outputFilePath, bool enumeratePages, bool exceptFirstPage)
 		{
 			string result = "Ok";
