@@ -1,5 +1,5 @@
 ﻿/*
-	PdfMerger
+	VP_PdfMerger
 
     Copyright (C) 2026  Volodymyr Petrivskyi vovapetrivskyi@gmail.com
 
